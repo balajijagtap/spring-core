@@ -10,16 +10,17 @@ public class DemoController {
     private Coach coach;
 
     // constructor injection
-//    @Autowired
-//    public DemoController(Coach coach){
-//        this.coach= coach;
-//    }
-
-    // setter injection
     @Autowired
-    public void setCoach(@Qualifier("tennisCoach") Coach coach){
-        this.coach=coach;
+    public DemoController(Coach coach){
+        System.out.println("constructing: "+DemoController.class.getSimpleName());
+        this.coach= coach;
     }
+
+//    // setter injection
+//    @Autowired
+//    public void setCoach(@Qualifier("tennisCoach") Coach coach){
+//        this.coach=coach;
+//    }
 
     @GetMapping("/daily-workout")
     public String dailyWorkout(){
