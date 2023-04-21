@@ -4,8 +4,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach{
-        @Override
-        public String getDailyWorkout() {
+
+    public TennisCoach(){
+        System.out.println("constructing: "+getClass().getSimpleName());
+    }
+
+    @Override
+    public String getDailyWorkout() {
             return "practise drop serve today";
         }
 }

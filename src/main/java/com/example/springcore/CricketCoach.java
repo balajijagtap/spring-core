@@ -4,11 +4,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
-public class CricketCoach implements Coach{
+public class CricketCoach implements Coach {
 
-    public CricketCoach(){
-        System.out.println("constructing: "+CricketCoach.class.getSimpleName());
+    public CricketCoach() {
+        System.out.println("constructing: " + getClass().getSimpleName());
     }
 
     @Override

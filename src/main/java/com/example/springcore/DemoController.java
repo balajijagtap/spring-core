@@ -11,9 +11,9 @@ public class DemoController {
 
     // constructor injection
     @Autowired
-    public DemoController(Coach coach){
-        System.out.println("constructing: "+DemoController.class.getSimpleName());
-        this.coach= coach;
+    public DemoController(@Qualifier("cricketCoach") Coach coach) {
+        System.out.println("constructing: " + getClass().getSimpleName());
+        this.coach = coach;
     }
 
 //    // setter injection
@@ -23,7 +23,7 @@ public class DemoController {
 //    }
 
     @GetMapping("/daily-workout")
-    public String dailyWorkout(){
+    public String dailyWorkout() {
         return coach.getDailyWorkout();
     }
 
