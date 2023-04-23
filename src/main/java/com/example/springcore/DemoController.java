@@ -8,14 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
     private Coach coach;
-    private Coach anotherCoach;
 
     // constructor injection
     @Autowired
-    public DemoController(@Qualifier("cricketCoach") Coach coach, @Qualifier("cricketCoach") Coach anotherCoach) {
+    public DemoController(@Qualifier("cricketCoach") Coach coach) {
         System.out.println("constructing: " + getClass().getSimpleName());
         this.coach = coach;
-        this.anotherCoach = anotherCoach;
     }
 
 //    // setter injection
@@ -28,10 +26,4 @@ public class DemoController {
     public String dailyWorkout() {
         return coach.getDailyWorkout();
     }
-
-    @GetMapping("/scope")
-    public String checkBeanScope() {
-        return "coach == anotherCoach, " + (coach == anotherCoach);
-    }
-
 }
