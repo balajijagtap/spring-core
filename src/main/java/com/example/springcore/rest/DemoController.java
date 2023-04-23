@@ -1,5 +1,6 @@
-package com.example.springcore;
+package com.example.springcore.rest;
 
+import com.example.springcore.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ public class DemoController {
 
     // constructor injection
     @Autowired
-    public DemoController(@Qualifier("cricketCoach") Coach coach) {
+    public DemoController(@Qualifier("swimCoach") Coach coach) {
         System.out.println("constructing: " + getClass().getSimpleName());
         this.coach = coach;
     }
